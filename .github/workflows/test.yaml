@@ -1,0 +1,16 @@
+name: Test PowerShell on Ubuntu
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  pester-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@main
+      - name: Run tests
+        shell: pwsh
+        run: Invoke-Pester
