@@ -1,0 +1,16 @@
+name: Run unit tests with Pester on Ubuntu
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  pester:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@main
+      - name: Run unit tests
+        shell: pwsh
+        run: Invoke-Pester
